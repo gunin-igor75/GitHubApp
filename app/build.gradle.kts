@@ -25,6 +25,12 @@ android {
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }
+
+        val key = property("apitoken")?.toString() ?: error(
+            "You should and apitoken" +
+                    " into gradle.properties"
+        )
+        buildConfigField("String", "API_TOKEN", "\"$key\"")
     }
 
     buildTypes {
@@ -45,6 +51,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.7"
@@ -70,6 +77,7 @@ dependencies {
     //room
     implementation(libs.room.core)
     ksp(libs.room.compilier)
+    implementation(libs.room.paging)
 
     //dagger
     implementation(libs.dagger.core)
@@ -81,6 +89,10 @@ dependencies {
     //okhttp
     implementation(libs.okhttp.core)
     implementation(libs.okhttp.logging)
+
+    //paging
+    implementation(libs.paging.core)
+    implementation(libs.paging.compose)
 
     //retrofit
     implementation(libs.retrofit.core)
