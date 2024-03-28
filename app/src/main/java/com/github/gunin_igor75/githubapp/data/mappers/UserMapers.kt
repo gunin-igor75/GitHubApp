@@ -46,9 +46,3 @@ fun String.convertString(): String {
     return zoneDate.format(formatter)
 }
 
-fun main() {
-    val str = "2022-05-29T07:40:27Z"
-    val str1 = "2011-12-03T10:15:30Z"
-    val res = str.convertString()
-    println(res)
-}

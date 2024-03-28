@@ -73,6 +73,8 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.navigation.compose)
+    implementation(libs.view.model.compose)
 
     //room
     implementation(libs.room.core)

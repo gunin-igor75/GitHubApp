@@ -10,7 +10,7 @@ import com.github.gunin_igor75.githubapp.data.local.db.UserDao
 import com.github.gunin_igor75.githubapp.data.mappers.toUser
 import com.github.gunin_igor75.githubapp.data.mappers.toUserDetails
 import com.github.gunin_igor75.githubapp.data.network.api.ApiService
-import com.github.gunin_igor75.githubapp.domain.UserRepository
+import com.github.gunin_igor75.githubapp.domain.repository.UserRepository
 import com.github.gunin_igor75.githubapp.domain.model.User
 import com.github.gunin_igor75.githubapp.domain.model.UserDetails
 import kotlinx.coroutines.flow.Flow
@@ -39,9 +39,7 @@ class UserRepositoryImp @Inject constructor(
             }
     }
 
-    override suspend fun getUser(name: String): UserDetails {
-        return apiService.loadUser(name).toUserDetails()
-    }
+
 
     private companion object {
         const val PAGE_SIZE = 30
