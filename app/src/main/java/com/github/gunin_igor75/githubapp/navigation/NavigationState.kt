@@ -14,7 +14,7 @@ class NavigationState(
     }
 
     fun navigateToUserDetails(name: String) {
-        navHostController.navigate(Screen.UserDetails.route)
+        navHostController.navigate(Screen.UserDetails.getRouteWithArgs(name))
     }
 }
 

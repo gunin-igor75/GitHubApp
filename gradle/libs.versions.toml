@@ -51,6 +51,8 @@ paging-compose = {group = "androidx.paging", name = "paging-compose", version.re
 navigation-compose = {group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation"}
 view-model-compose = {group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref ="view-model"}
 
+
+
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
