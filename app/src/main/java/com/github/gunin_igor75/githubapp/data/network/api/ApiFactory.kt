@@ -12,9 +12,8 @@ object ApiFactory {
     private const val BASE_URL = "https://api.github.com/"
     private const val HEADER = "Authorization"
 
-
     private val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor(apikeyInterceptor())
+        .addInterceptor(apiTokenInterceptor())
         .addInterceptor(loggingInterceptor())
         .build()
 
@@ -34,7 +33,7 @@ object ApiFactory {
         }
     }
 
-    private fun apikeyInterceptor(): Interceptor {
+    private fun apiTokenInterceptor(): Interceptor {
         return Interceptor { chain ->
             val oldRequest = chain.request()
             val newUrl = oldRequest.url.newBuilder()

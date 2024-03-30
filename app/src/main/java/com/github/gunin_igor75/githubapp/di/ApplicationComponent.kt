@@ -8,13 +8,14 @@ import dagger.Component
 @Component(
     modules = [
         DataModule::class,
-        ViewModelModule::class
+        UsersViewModelModule::class
     ]
 )
 interface ApplicationComponent {
 
     fun getViewModelFactory(): ViewModelFactory
 
+    fun getUserDetailsComponentFactory(): UserDetailsComponent.Factory
     @Component.Factory
     interface Factory {
         fun create(

@@ -19,6 +19,7 @@ paging = "3.2.1"
 paging-compose = "3.3.0-alpha05"
 navigation = "2.7.7"
 view-model = "2.7.0"
+constraintlayout-compose = "1.1.0-alpha13"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -50,7 +51,7 @@ paging-core = {group = "androidx.paging", name = "paging-runtime-ktx", version.r
 paging-compose = {group = "androidx.paging", name = "paging-compose", version.ref = "paging-compose"}
 navigation-compose = {group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation"}
 view-model-compose = {group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref ="view-model"}
-
+constraintLayout-compose = {group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "constraintlayout-compose"}
 
 
 [plugins]

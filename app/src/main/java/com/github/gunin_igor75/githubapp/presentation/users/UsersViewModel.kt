@@ -7,7 +7,7 @@ import com.github.gunin_igor75.githubapp.domain.usecase.GetUsersUseCase
 import javax.inject.Inject
 
 class UsersViewModel @Inject constructor(
-    private val getUsersUseCase: GetUsersUseCase
+    getUsersUseCase: GetUsersUseCase
 ): ViewModel() {
 
     val usersPagingFlow = getUsersUseCase()

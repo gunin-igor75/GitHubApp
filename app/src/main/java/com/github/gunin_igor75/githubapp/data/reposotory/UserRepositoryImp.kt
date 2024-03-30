@@ -8,18 +8,14 @@ import androidx.paging.map
 import com.github.gunin_igor75.githubapp.data.UserRemoteMediator
 import com.github.gunin_igor75.githubapp.data.local.db.UserDao
 import com.github.gunin_igor75.githubapp.data.mappers.toUser
-import com.github.gunin_igor75.githubapp.data.mappers.toUserDetails
-import com.github.gunin_igor75.githubapp.data.network.api.ApiService
-import com.github.gunin_igor75.githubapp.domain.repository.UserRepository
 import com.github.gunin_igor75.githubapp.domain.model.User
-import com.github.gunin_igor75.githubapp.domain.model.UserDetails
+import com.github.gunin_igor75.githubapp.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class UserRepositoryImp @Inject constructor(
     private val userDao: UserDao,
-    private val apiService: ApiService,
     private val userRemoteMediator: UserRemoteMediator,
 ) : UserRepository {
 
@@ -38,8 +34,6 @@ class UserRepositoryImp @Inject constructor(
                 pagingData.map { it.toUser() }
             }
     }
-
-
 
     private companion object {
         const val PAGE_SIZE = 30

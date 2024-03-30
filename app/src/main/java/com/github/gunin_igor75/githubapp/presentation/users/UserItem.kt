@@ -9,29 +9,19 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
-import com.github.gunin_igor75.githubapp.R
+import com.github.gunin_igor75.githubapp.components.AvatarImage
 import com.github.gunin_igor75.githubapp.domain.model.User
 
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun UserItem(
     user: User,
@@ -52,24 +42,11 @@ fun UserItem(
                 .height(IntrinsicSize.Max)
                 .padding(vertical = 8.dp)
         ) {
-            val modifierImage = Modifier
-                .size(48.dp)
-                .clip(CircleShape)
-                .weight(1f)
-            if (user.avatar != null) {
-                GlideImage(
-                    model = user.avatar,
-                    contentDescription = stringResource(R.string.avatar_user),
-                    modifier = Modifier.then(modifierImage)
-
-                )
-            } else {
-                Icon(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.account),
-                    contentDescription = "Icon account",
-                    modifier = Modifier.then(modifierImage)
-                )
-            }
+            AvatarImage(
+                url = user.avatar,
+                size = 48.dp,
+                modifier = Modifier.weight(1f)
+            )
             Column(
                 modifier = Modifier
                     .weight(3f)
@@ -95,11 +72,7 @@ fun UserItem(
 @Composable
 fun UserItemPreview() {
     UserItem(
-        user = User(
-            id = 12554L,
-            title = "igor-gunin75",
-            avatar = null
-        ),
+        user = User.USER_DEFAULT,
         onClickItem = {}
     )
 }

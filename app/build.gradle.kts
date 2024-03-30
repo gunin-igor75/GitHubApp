@@ -100,6 +100,9 @@ dependencies {
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.gsonConverter)
 
+    //constraintLayout
+    implementation(libs.constraintLayout.compose)
+        
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

@@ -29,7 +29,7 @@ fun MainScreen() {
             userDetailsScreenContent = { name ->
                 UserDetailsScreenContent(
                     name = name,
-                    noClickBack = {
+                    onClickBack = {
                         navHostController.popBackStack()
                     }
                 )

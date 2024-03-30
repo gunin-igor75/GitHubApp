@@ -22,7 +22,6 @@ interface DataModule {
     @[Binds ApplicationScope]
     fun bindsUserDetailsRepository(impl: UserDetailsRepositoryImpl): UserDetailsRepository
 
-
     companion object {
 
         @[Provides ApplicationScope]

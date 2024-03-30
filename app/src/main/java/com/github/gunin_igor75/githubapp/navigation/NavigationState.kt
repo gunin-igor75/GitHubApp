@@ -9,10 +9,6 @@ class NavigationState(
     val navHostController: NavHostController
 ) {
 
-    fun navigationTo(route: String) {
-        navHostController.navigate(route)
-    }
-
     fun navigateToUserDetails(name: String) {
         navHostController.navigate(Screen.UserDetails.getRouteWithArgs(name))
     }
