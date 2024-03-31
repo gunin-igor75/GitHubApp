@@ -2,16 +2,18 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.parcelize)
 }
 
 android {
     namespace = "com.github.gunin_igor75.githubapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.github.gunin_igor75.githubapp"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -19,6 +21,16 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
+
+        val key = property("apitoken")?.toString() ?: error(
+            "You should and apitoken" +
+                    " into gradle.properties"
+        )
+        buildConfigField("String", "API_TOKEN", "\"$key\"")
     }
 
     buildTypes {
@@ -39,9 +51,10 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.7"
     }
     packaging {
         resources {
@@ -60,6 +73,37 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.navigation.compose)
+    implementation(libs.view.model.compose)
+
+    //room
+    implementation(libs.room.core)
+    ksp(libs.room.compilier)
+    implementation(libs.room.paging)
+
+    //dagger
+    implementation(libs.dagger.core)
+    ksp(libs.dagger.compiler)
+
+    //glide
+    implementation(libs.glide.compose)
+
+    //okhttp
+    implementation(libs.okhttp.core)
+    implementation(libs.okhttp.logging)
+
+    //paging
+    implementation(libs.paging.core)
+    implementation(libs.paging.compose)
+
+    //retrofit
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.gsonConverter)
+
+    //constraintLayout
+    implementation(libs.constraintLayout.compose)
+        
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">GitHubApp</string>
+    <string name="avatar_user">Avatar user</string>
+    <string name="email">Email</string>
+    <string name="organisation">Organisation</string>
+    <string name="following">Following</string>
+    <string name="followers">Followers</string>
+    <string name="createdAt">Creation date</string>
+    <string name="profile">Profile</string>
+    <string name="icon_back">Icon back</string>
+    <string name="title_users">Users gitHab</string>
 </resources>

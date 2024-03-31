@@ -1,4 +1,4 @@
-package com.github.gunin_igor75.githubapp.ui.theme
+package com.github.gunin_igor75.githubapp.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
