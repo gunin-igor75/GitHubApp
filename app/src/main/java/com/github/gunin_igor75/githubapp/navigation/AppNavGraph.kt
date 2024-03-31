@@ -29,7 +29,9 @@ fun AppNavGraph(
                 }
             )
         ) {
-            val name = it.arguments?.getString(Screen.KEY_NAME) ?: ""
+            val name = it.arguments?.getString(Screen.KEY_NAME) ?: throw  IllegalArgumentException(
+                "This name is null"
+            )
             userDetailsScreenContent(name)
         }
     }
