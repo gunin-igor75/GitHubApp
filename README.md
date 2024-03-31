@@ -14,4 +14,6 @@
 - glide
 - dagger2
 - room
+- paging
+  
 Для запуска проекта требуется прописать свойство "apitoken=токен полученный в gitHub" в файле gradle.properties 
