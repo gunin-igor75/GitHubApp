@@ -75,6 +75,7 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.navigation.compose)
     implementation(libs.view.model.compose)
+    implementation(libs.lifecycle.compose.core)
 
     //room
     implementation(libs.room.core)
