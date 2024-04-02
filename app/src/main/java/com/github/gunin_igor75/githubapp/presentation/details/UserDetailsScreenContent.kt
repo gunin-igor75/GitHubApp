@@ -13,7 +13,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.github.gunin_igor75.githubapp.R
 import com.github.gunin_igor75.githubapp.components.AvatarImage
@@ -42,7 +42,7 @@ fun UserDetailsScreenContent(
         .getUserDetailsComponentFactory()
         .create(name)
     val viewModel: UserDetailsViewModel = viewModel(factory = component.getViewModelFactory())
-    val stateUserDetails by viewModel.userDetails.collectAsState()
+    val stateUserDetails by viewModel.userDetails.collectAsStateWithLifecycle()
     val context = LocalContext.current
 
     when (val state = stateUserDetails) {
