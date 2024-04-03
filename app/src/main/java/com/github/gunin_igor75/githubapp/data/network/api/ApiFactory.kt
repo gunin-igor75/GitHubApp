@@ -35,14 +35,11 @@ object ApiFactory {
 
     private fun apiTokenInterceptor(): Interceptor {
         return Interceptor { chain ->
-            val oldRequest = chain.request()
-            val newUrl = oldRequest.url.newBuilder()
-                .addQueryParameter(HEADER, "Bearer ${BuildConfig.API_TOKEN}")
-                .build()
-            val newRequest = oldRequest.newBuilder()
-                .url(newUrl)
-                .build()
-            return@Interceptor chain.proceed(newRequest)
+                val newBuilder = chain.request()
+                    .newBuilder()
+                    .addHeader(HEADER, "Bearer ${BuildConfig.API_TOKEN}")
+                    .build()
+            return@Interceptor chain.proceed(newBuilder)
         }
     }
 }
